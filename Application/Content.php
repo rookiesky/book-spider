@@ -23,10 +23,12 @@ class Content
 
     public function boot()
     {
-       $list = $this->spiderLinkRepository->limitGet(180);
+       $list = $this->spiderLinkRepository->limitGet(100);
        $result = $this->listRegFormat($list);
         (new BookContentRepository())->addAll($result['data']);
         $this->spiderLinkRepository->destroy($result['id']);
+        unset($list);
+        unset($result);
     }
 
     private function listRegFormat($list)
