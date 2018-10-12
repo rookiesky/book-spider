@@ -1,0 +1,24 @@
+{
+    "name": "rookieSky/book-spider",
+    "description": "蜘取网小说",
+    "license": "0.1",
+    "authors": [
+        {
+            "name": "rookiesky",
+            "email": "1332305055@qq.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^4.1",
+        "filp/whoops": "^2.2",
+        "illuminate/database": "^5.6",
+        "vlucas/phpdotenv": "^2.5",
+        "illuminate/events": "^5.6",
+        "qiniu/php-sdk": "^7.2"
+    },
+    "autoload":{
+        "psr-4": {
+            "Spider\\": "Application/"
+        }
+    }
+}
