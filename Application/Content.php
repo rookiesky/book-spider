@@ -23,12 +23,22 @@ class Content
 
     public function boot()
     {
-       $list = $this->spiderLinkRepository->limitGet(50);
+       $list = $this->spiderLinkRepository->limitGet(40);
+       $this->updateStatus($list);
        $result = $this->listRegFormat($list);
         (new BookContentRepository())->addAll($result['data']);
         $this->spiderLinkRepository->destroy($result['id']);
         unset($list);
         unset($result);
+    }
+
+    public function updateStatus($data)
+    {
+        $ids = array();
+        foreach ($data as $val){
+            $ids[] = $val->id;
+        }
+        $this->spiderLinkRepository->whereInUpdate($ids,['status' => 2]);
     }
 
     private function listRegFormat($list)
