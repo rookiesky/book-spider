@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.21)
 # Database: books
-# Generation Time: 2018-10-12 12:57:32 +0000
+# Generation Time: 2018-10-15 10:23:47 +0000
 # ************************************************************
 
 
@@ -121,6 +121,7 @@ CREATE TABLE `spider_links` (
   `link` varchar(191) NOT NULL,
   `book_id` int(11) NOT NULL,
   `created_at` varchar(45) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1' COMMENT '1:待采集2正在采集',
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

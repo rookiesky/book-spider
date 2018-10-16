@@ -67,6 +67,7 @@ class Book
             $data[$key]['link'] = $value['link'];
             $data[$key]['book_id'] = $bookId;
             $data[$key]['created_at'] = $date;
+            $data[$key]['content_id'] = $key;
         }
         $spiderLinkRepository = new SpiderLinkRepository();
         return $spiderLinkRepository->addAll($data);

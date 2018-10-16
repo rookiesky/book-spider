@@ -55,6 +55,7 @@ class Content
             $data[$key]['book_id'] = $value->book_id;
             $data[$key]['created_at'] = $date;
             $data[$key]['updated_at'] = $date;
+            $data[$key]['content_id'] = $value->content_id;
             $id[] = $value->id;
         }
         return compact(['data','id']);
@@ -83,7 +84,8 @@ class Content
             'link' => $data['link'],
             'book_id' => $data['book_id'],
             'error' => $error,
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => date('Y-m-d H:i:s'),
+            'content_id' => $data['content_id']
         ]);
     }
 }
