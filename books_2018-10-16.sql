@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.21)
 # Database: books
-# Generation Time: 2018-10-15 10:23:47 +0000
+# Generation Time: 2018-10-16 03:50:00 +0000
 # ************************************************************
 
 
@@ -32,6 +32,7 @@ CREATE TABLE `book_contents` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `book_id` int(11) NOT NULL,
+  `content_id` int(11) NOT NULL COMMENT '排序',
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`),
   KEY `title` (`title`)
@@ -105,6 +106,7 @@ CREATE TABLE `spider_link_error` (
   `book_id` int(11) NOT NULL,
   `error` text,
   `created_at` datetime NOT NULL,
+  `content_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -122,6 +124,7 @@ CREATE TABLE `spider_links` (
   `book_id` int(11) NOT NULL,
   `created_at` varchar(45) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1' COMMENT '1:待采集2正在采集',
+  `content_id` int(11) NOT NULL COMMENT '文章排序',
   PRIMARY KEY (`id`),
   KEY `book_id` (`book_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

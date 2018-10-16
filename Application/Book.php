@@ -50,7 +50,7 @@ class Book
         }
 
         $linkResult = $this->createSpiderList($data['list'],$result->id);
-
+        unset($data);
         if(!$linkResult){
             $this->bookRepository->destroy($result->id);
             return false;
@@ -69,6 +69,7 @@ class Book
             $data[$key]['created_at'] = $date;
             $data[$key]['content_id'] = $key;
         }
+        unset($list);
         $spiderLinkRepository = new SpiderLinkRepository();
         return $spiderLinkRepository->addAll($data);
     }
